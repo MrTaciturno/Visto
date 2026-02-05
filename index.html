@@ -37,7 +37,43 @@
     
     <textarea id="textoAnalisado" placeholder="Informações processadas." name="textoAnalisado" rows="5"></textarea>
 
-    <button id='novoDano' onclick="abrirPopupDano()" style="padding: 10px 30px; font-size: 1.2em; height: 50px; margin: 5px 0; width: 100%;">Novo Dano</button>
+    <div style="display: flex; gap: 8px; width: 100%; margin-bottom: 5px;">
+        <button id="novoDano" onclick="abrirPopupDano()" style="padding: 10px 30px; font-size: 1.2em; height: 50px; width: 50%;">Novo Dano</button>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; width: 50%; gap: 4px;">
+            <button id="placaArtesanal" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Placa Artesanal</button>
+            <button id="qrcodeNaoLe" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">QR Code não lê</button>
+            <button id="qrNaoPesquisa" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0;">QR não pesquisa</button>
+        </div>
+    </div>
+    <script>
+    document.getElementById('placaArtesanal').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'Placa artesanal para o Beto\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    document.getElementById('qrcodeNaoLe').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'QR Code não lê para o Beto\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    document.getElementById('qrNaoPesquisa').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'QR não pesquisa para o Beto\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    </script>
 
     
     <div id="popupTipoDano" class="popup">
