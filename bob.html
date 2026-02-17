@@ -40,9 +40,13 @@
     <div style="display: flex; gap: 8px; width: 100%; margin-bottom: 5px;">
         <button id="novoDano" onclick="abrirPopupDano()" style="padding: 10px 30px; font-size: 1.2em; height: 50px; width: 50%;">Novo Dano</button>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 50%; gap: 4px;">
+            <button id="qrDanificado" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">QR Danificado</button>
+            <button id="placaFalsa" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Placa Falsa-QR ilegível</button>
+            <button id="placaOK_naoSENATRAN" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Placa OK-Não encontrada SENATRAN</button>
+            <button id="placaOK_inativoSENATRAN" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Placa OK-Inativo SENATRAN</button>
+
             <button id="placaArtesanal" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Placa Artesanal</button>
-            <button id="qrcodeNaoLe" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">QR Code não lê</button>
-            <button id="qrNaoPesquisa" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0;">QR não pesquisa</button>
+            <button id="fitaIsolante" style="padding: 5px 6px; font-size: 0.9em; height: 24px; width: 100%; min-width: 0; margin-bottom: 2px;">Fita Isolante</button>
         </div>
     </div>
     <script>
@@ -52,7 +56,7 @@
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
             danosVeicTextarea.value += '\n';
         }
-        danosVeicTextarea.value += 'Placa artesanal para o Beto\n';
+        danosVeicTextarea.value += 'Placa de identificação veicular ostentando código QR danificado e ilegível pelo aplicativo VIO;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
     document.getElementById('qrcodeNaoLe').addEventListener('click', function() {
@@ -61,7 +65,7 @@
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
             danosVeicTextarea.value += '\n';
         }
-        danosVeicTextarea.value += 'QR Code não lê para o Beto\n';
+        danosVeicTextarea.value += 'Placa de identificação com características não originais, ostentando código QR ilegível pelo aplicativo VIO;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
     document.getElementById('qrNaoPesquisa').addEventListener('click', function() {
@@ -70,7 +74,7 @@
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
             danosVeicTextarea.value += '\n';
         }
-        danosVeicTextarea.value += 'QR não pesquisa para o Beto\n';
+        danosVeicTextarea.value += 'Placa de identificação veicular com características originais, ostentando código QR legível pelo aplicativo VIO e estampagem não encontrada no portal SENATRAN;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
     </script>
