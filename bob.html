@@ -50,7 +50,7 @@
         </div>
     </div>
     <script>
-    document.getElementById('placaArtesanal').addEventListener('click', function() {
+    document.getElementById('qrDanificado').addEventListener('click', function() {
         const danosVeicTextarea = document.getElementById('danosVeic');
         // Se já houver texto e não termina com \n
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
@@ -59,7 +59,7 @@
         danosVeicTextarea.value += 'Placa de identificação veicular ostentando código QR danificado e ilegível pelo aplicativo VIO;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
-    document.getElementById('qrcodeNaoLe').addEventListener('click', function() {
+    document.getElementById('placaFalsa').addEventListener('click', function() {
         const danosVeicTextarea = document.getElementById('danosVeic');
         // Se já houver texto e não termina com \n
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
@@ -68,13 +68,40 @@
         danosVeicTextarea.value += 'Placa de identificação com características não originais, ostentando código QR ilegível pelo aplicativo VIO;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
-    document.getElementById('qrNaoPesquisa').addEventListener('click', function() {
+    document.getElementById('placaOK_naoSENATRAN').addEventListener('click', function() {
         const danosVeicTextarea = document.getElementById('danosVeic');
         // Se já houver texto e não termina com \n
         if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
             danosVeicTextarea.value += '\n';
         }
         danosVeicTextarea.value += 'Placa de identificação veicular com características originais, ostentando código QR legível pelo aplicativo VIO e estampagem não encontrada no portal SENATRAN;\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    document.getElementById('placaOK_inativoSENATRAN').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'Placa de identificação veicular com características originais, ostentando código QR legível pelo aplicativo VIO e estampagem INATIVA em pesquisa no portal SENATRAN;\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    document.getElementById('placaArtesanal').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'Placa de identificação veicular artesanal;\n';
+        danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
+    });
+    document.getElementById('fitaIsolante').addEventListener('click', function() {
+        const danosVeicTextarea = document.getElementById('danosVeic');
+        // Se já houver texto e não termina com \n
+        if (danosVeicTextarea.value.length > 0 && !danosVeicTextarea.value.endsWith('\n')) {
+            danosVeicTextarea.value += '\n';
+        }
+        danosVeicTextarea.value += 'Placa de identificação veicular com características originais, alterada mediante colagens de fita do tipo isolante de coloração preta;\n';
         danosVeicTextarea.dispatchEvent(new Event('input')); // dispara evento caso precise de auto salvamento
     });
     </script>
